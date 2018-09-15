@@ -5,7 +5,6 @@
 %  ms*100 is the total number of performed steps
 %  temp is the initial temperature, after each 100 steps it
 %  is decreased by 1%.
-
    if (nargin<4)
       met =1;      % default: Metropolis algorithm
    end
@@ -24,8 +23,6 @@
    ord = [1:n];  op = path(ord,cities);
   
    for jstep=1:ceil(maxsteps);
-%  lower temperature by 0.1 percent 
-%   temp = temp*0.999;
    for ins = 1:100 
       j = ceil(rand*n); len = ceil(rand*(n/2));
       cand = reverse(ord,j,len);
@@ -62,17 +59,17 @@
 %}
    end
 %  plot evolution of length versus iteration step
-      figure(2); plot(0,0); hold on; 
-      plot(tt,lt,'k.'); 
-      title(['n =',num2str(n,'%3.0f'),       ...
-             '   l =',num2str(curlen,'%4.4f'),  ... 
-             '   T =',num2str(temps,'%4.4f')],   ... 
-             'fontsize',16);
+%       figure(2); plot(0,0); hold on; 
+%       plot(tt,lt,'k.'); 
+%       title(['n =',num2str(n,'%3.0f'),       ...
+%              '   l =',num2str(curlen,'%4.4f'),  ... 
+%              '   T =',num2str(temps,'%4.4f')],   ... 
+%              'fontsize',16);
       if (met==1) 
          xlabel(['Metropolis steps / 100'],'fontsize',16);
          m = mean(lt(end-50:end)*sqrt(n));
-         v = var(lt(end-50:end)*sqrt(n));
-         anneal = [m,v];
+         std = sqrt(var(lt(end-50:end)*sqrt(n)));
+         anneal = [m,std];
       else 
          xlabel(['Threshold steps /100'],'fontsize',16);
       end

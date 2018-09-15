@@ -16,7 +16,7 @@ ylabel('<l> values','fontsize',16);
 %}
 
 j = 0.5:-0.01:0; %temp
-k = 50:10:100; %cities
+k = 20:30:140; %cities
 
 results = zeros(length(j),2);
 finalResults = zeros(length(j),length(k)*2);
@@ -30,13 +30,11 @@ for l = k
     finalResults(:,column:column+1) = results;
     column = column + 2;
 end
-disp(finalResults)
 figure(3); plot(0,0); hold on; 
-%fem grafic de les diferents ciutsts
+%fem grafic de les diferents ciutats
 
-colours = ['ko-' 'ro-' 'bo-' 'mo-' 'go-'];
-for column = 1:2:length(k)
-    errorbar(j,finalResults(:,column), finalResults(:,column+1),colours(mod(column,length(colours))+1));
+for column = 1:2:2*length(k)
+    errorbar(j,finalResults(:,column), finalResults(:,column+1),'o-');
     hold on;
 end
     
@@ -44,5 +42,6 @@ end
 title('<l> vs T comparsion','fontsize',16);
 xlabel('Temperature Values','fontsize',16);
 ylabel('<l> values','fontsize',16);
+legend('20 cities','50 cities','80 cities','110 cities','140 cities');
 
     
