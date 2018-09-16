@@ -30,18 +30,17 @@ for l = k
     finalResults(:,column:column+1) = results;
     column = column + 2;
 end
-figure(3); plot(0,0); hold on; 
+figure(3); hold on; 
 %fem grafic de les diferents ciutats
 
 for column = 1:2:2*length(k)
     errorbar(j,finalResults(:,column), finalResults(:,column+1),'o-');
     hold on;
 end
-    
-%errorbar(j,results(:,1),results(:,2),'ko-');
-title('<l> vs T comparsion','fontsize',16);
+
+title('Mean Length vs Temperature comparsion for different number of cities','fontsize',16);
 xlabel('Temperature Values','fontsize',16);
-ylabel('<l> values','fontsize',16);
-legend('20 cities','50 cities','80 cities','110 cities','140 cities');
+ylabel('Mean length of path values','fontsize',16);
+legend('20 cities','50 cities','80 cities','110 cities','140 cities','Location','northwest');
 
     
