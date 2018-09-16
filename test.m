@@ -41,6 +41,6 @@ end
 title('Mean Length vs Temperature comparsion for different number of cities','fontsize',16);
 xlabel('Temperature Values','fontsize',16);
 ylabel('Mean length of path values','fontsize',16);
-legend('20 cities','50 cities','80 cities','110 cities','140 cities','Location','northwest');
+legend({'20 cities','50 cities','80 cities','110 cities','140 cities'},'Location','northwest','FontSize',12);
 
     
