@@ -19,12 +19,14 @@ for i = 1:1000
     d(i) = hd_norm(file1.iriscode(randi([1,20]),:),file2.iriscode(randi([1,20]),:));
 end
 figure(4);
-histogram(s); hold on;
-histogram(d);
-legend({'Equal Iris','Different Iris'},'Location','northeast');
+%Adjusted the number of bins so it's seen clearly
+histfit(s,7); hold on;
+histfit(d,17);
+legend({'Equal Iris','Normal distribution of same Iris','Different Iris','Normal distribution of different iris'},'Location','northeast');
 ylabel('Number of occurrences');
 xlabel('Normalised Hamming Distance');
 hold off;
+
 end
 
 function diff = hd_norm(row1,row2)
