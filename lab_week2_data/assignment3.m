@@ -20,7 +20,14 @@ for i = 1:1000
 end
 figure(4);
 %Adjusted the number of bins so it's seen clearly
-histfit(s,7); hold on;
+histogram(s); hold on;
+disp(s)
+disp(d)
+histogram(d);
+legend({'Equal Iris','Different Iris'},'Location','northeast');
+hold off;
+figure(5); hold on;
+histfit(s,7); 
 histfit(d,17);
 legend({'Equal Iris','Normal distribution of same Iris','Different Iris','Normal distribution of different iris'},'Location','northeast');
 ylabel('Number of occurrences');

@@ -68,4 +68,23 @@ function assignment2()
         xlabel('Value');
     hold off;
     
+    figure(4); hold on;
+        plot(S1,zeros(length(S1)),'bo');
+        plot(S2,zeros(length(S2)),'ro');
+        plot(T,zeros(length(T)),'ks');
+        plot(-50:95,post_prob_s1);
+        plot(-50:95,post_prob_s2);
+        treshold1 = 35.8596;
+        treshold2 = 123.847;
+        plot([treshold1 treshold1],[0 0.014],'k');
+        plot([treshold2 treshold2],[0 0.014],'k');
+        text(-60+((treshold1+60)/2), 0.007, 'S1');
+        text(treshold1+((treshold2-treshold1)/2), 0.007, 'S2');
+        text(130, 0.007, 'S1');
+        title('Posterior Gaussian distributions of sets S1 and S2')
+        ylabel('Posterior probability');
+        xlabel('Value');
+    hold off;
+    errorS1 = (1 - sum(S1<treshold1)/length(S1))
+    errorS2 = sum(S2<treshold1)/length(S2)
 end
