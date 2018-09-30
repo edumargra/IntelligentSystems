@@ -85,6 +85,6 @@ function assignment2()
         ylabel('Posterior probability');
         xlabel('Value');
     hold off;
-    errorS1 = (1 - sum(S1<treshold1)/length(S1))
-    errorS2 = sum(S2<treshold1)/length(S2)
+    errorS1 = (1 - sum(S1<treshold1)/length(S1)) %0.1333
+    errorS2 = sum(S2<treshold1)/length(S2) %0.0667
 end
