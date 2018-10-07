@@ -4,9 +4,8 @@ function assignment2()
     X = data;
     Y = pdist(X); %pairwise dist, default dist is euclidian
     Z = linkage(Y,'average'); %all dist contribute the same
-    dendrogram(Z);
+    [H,T] = dendrogram(Z);
     xt = xticks;
-    lab = labels;
-    new_xt = lab(xt);
+    new_xt = labels(xt);
     xticklabels(new_xt);
     xtickangle(45);
