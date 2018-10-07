@@ -7,5 +7,8 @@ function assignment2()
     [H,T] = dendrogram(Z);
     xt = xticks;
     new_xt = labels(xt);
+    xlabel('Stock');
+    ylabel('Euclidian distance');
+    title('Dendogram of stocks from AEX');
     xticklabels(new_xt);
     xtickangle(45);
