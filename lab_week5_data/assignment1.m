@@ -22,6 +22,7 @@ for t = 1:tmax
         prototype_values(idx,:) = prototype_values(idx,:) + eta * (point - prototype_values(idx,:));
     end
     scatter(prototype_values(idx,1),prototype_values(idx,2),'g.');
+    drawnow;
 end
 scatter(prototype_values(:,1),prototype_values(:,2),'m*');
 hold off;
