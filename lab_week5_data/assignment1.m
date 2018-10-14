@@ -23,10 +23,11 @@ for t = 1:tmax
     end
     p3 = scatter(prototype_values(idx,1),prototype_values(idx,2),'g.');
     drawnow;
+    
 end
 p4 = scatter(prototype_values(:,1),prototype_values(:,2),'m*');
 title('Winner-takes-all implementation on w6_1x set for 4 prototypes', 'Interpreter', 'None');
 h = [p1(1),p2(1),p3(1),p4(1)];
-legend(h,'Data points', 'Initial prototypes', 'Prototypes in each iteration', 'Final prototypes', 'Location', 'northeastoutside');
+legend(h,{'Data points', 'Initial prototypes', 'Prototypes in each iteration', 'Final prototypes'}, 'Location', 'northeastoutside', 'FontSize', 12);
 hold off;
 end
