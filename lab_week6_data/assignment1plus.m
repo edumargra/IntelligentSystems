@@ -27,13 +27,13 @@ for t = 1:tmax
             distance(j) = (prototype(1)-point(1))^2 + (prototype(2)-point(2))^2;
         end
         [~,idx1] = min(distance(1:k/2)); %min class1
-        [~,idx2] = min(distance(k/2+1:k)); %min class 2
+        [~,idx2] = min(distance((k/2)+1:k)); %min class 2
         idx2 = idx2 + k/2;
-        if(point(3) == 1)
+        if(point(3) == prototype_values(idx1,3))
             prototype_values(idx1,1:2) = prototype_values(idx1,1:2) + 1 * eta * (point(:,1:2) - prototype_values(idx1,1:2));
-            prototype_values(idx2,1:2) = prototype_values(idx2,1:2) + -1 * eta * (point(:,1:2) - prototype_values(idx2,1:2));
+            prototype_values(idx2,1:2) = prototype_values(idx2,1:2) - 1 * eta * (point(:,1:2) - prototype_values(idx2,1:2));
         else
-            prototype_values(idx1,1:2) = prototype_values(idx1,1:2) + -1 * eta * (point(:,1:2) - prototype_values(idx1,1:2));
+            prototype_values(idx1,1:2) = prototype_values(idx1,1:2) - 1 * eta * (point(:,1:2) - prototype_values(idx1,1:2));
             prototype_values(idx2,1:2) = prototype_values(idx2,1:2) + 1 * eta * (point(:,1:2) - prototype_values(idx2,1:2));
         end
     end
@@ -54,7 +54,7 @@ for t = 1:tmax
     end
 end
 p4 = scatter(prototype_values(:,1),prototype_values(:,2),'m*');
-title('LVQ1 implementation on data_lvq set for 4 prototypes', 'Interpreter', 'None');
+title('LVQ2.1 implementation on data_lvq set for 4 prototypes', 'Interpreter', 'None');
 h = [p1(1),p12(1),p2(1),p3(1),p4(1)];
 legend(h,{'Class 1', 'Class 2', 'Initial prototypes', 'Prototypes in each iteration', 'Final prototypes'}, 'Location', 'northeastoutside', 'FontSize', 12);
 hold off;
