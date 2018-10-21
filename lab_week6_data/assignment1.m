@@ -16,7 +16,8 @@ errClass = zeros(1,tmax);
 figure(1); hold on;
 p1 = scatter(X.w5_1(1:50,1),X.w5_1(1:50,2),'k');
 p12 = scatter(X.w5_1(51:100,1),X.w5_1(51:100,2),'ks');
-p2 = scatter(prototype_values(:,1),prototype_values(:,2),'r*');
+p2 = scatter(prototype_values(1:k/2,1),prototype_values(1:k/2,2),'g');
+p22 = scatter(prototype_values((k/2)+1:k,1),prototype_values((k/2)+1:k,2),'gs');
 for t = 1:tmax
     values = original_values(randperm(p),:);
     for i = 1:p     %training loop
@@ -49,8 +50,9 @@ for t = 1:tmax
         end
     end
 end
-p4 = scatter(prototype_values(:,1),prototype_values(:,2),'m*');
-title('LVQ1 implementation on data_lvq set for 4 prototypes', 'Interpreter', 'None');
+p4 = scatter(prototype_values(1:k/2,1),prototype_values(1:k/2,2),'m');
+p42 = scatter(prototype_values((k/2)+1:k,1),prototype_values((k/2)+1:k,2),'ms');
+title('LVQ1 implementation on data_lvq set for 2 prototypes', 'Interpreter', 'None');
 h = [p1(1),p12(1),p2(1),p3(1),p4(1)];
 legend(h,{'Class 1', 'Class 2', 'Initial prototypes', 'Prototypes in each iteration', 'Final prototypes'}, 'Location', 'northeastoutside', 'FontSize', 12);
 hold off;
@@ -58,6 +60,6 @@ figure(2); hold on;
 plot(errClass/100);
 ylabel('Misclassified samples(%)');
 xlabel('Epoch');
-title('Error of classification for K=4 and eta=0.002 for 200 epochs');
+title('Error of classification for K=2 and eta=0.002 for 200 epochs');
 hold off;
 end
