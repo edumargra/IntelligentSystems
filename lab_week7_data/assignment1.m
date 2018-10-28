@@ -69,8 +69,11 @@ end
 figure(1); hold on;
 errClassTrain = errClassTrain/80;
 errClass = errClass/20;
-disp(std(errClassTrain));
 errorbar(mean(errClass),std(errClass),'r');
 errorbar(mean(errClassTrain),std(errClassTrain),'b');
+xlabel('Epoch number');
+ylabel('Error');
+title('Means and standard deviations on the training set and the test set');
+legend('Test set','Training set');
 hold off;
 end
