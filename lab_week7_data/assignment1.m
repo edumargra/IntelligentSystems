@@ -73,7 +73,7 @@ errorbar(mean(errClass),std(errClass),'r');
 errorbar(mean(errClassTrain),std(errClassTrain),'b');
 xlabel('Epoch number');
 ylabel('Error');
-title('Means and standard deviations on the training set and the test set');
+title('Means and standard deviations on the training set and the test set for K=1');
 legend('Test set','Training set');
 hold off;
 end
