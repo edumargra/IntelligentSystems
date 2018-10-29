@@ -67,8 +67,8 @@ for cross = 1:ncross
     end
 end
 figure(1); hold on;
-errClassTrain = errClassTrain/80;
-errClass = errClass/20;
+errClassTrain = errClassTrain/(100-section);
+errClass = errClass/section;
 errorbar(mean(errClass),std(errClass),'r');
 errorbar(mean(errClassTrain),std(errClassTrain),'b');
 xlabel('Epoch number');
